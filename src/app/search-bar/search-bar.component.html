@@ -1,1 +1,6 @@
-<input type="text" placeholder="Enter name of the planet">
+<input 
+    type="text" 
+    placeholder="Enter name of the planet"
+    (input)="onInputText()"
+    [(ngModel)]="namePlanet"
+>

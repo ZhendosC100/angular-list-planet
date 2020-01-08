@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PlanetList } from '../app.component';
 
 @Component({
   selector: 'app-planets',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PlanetsComponent implements OnInit {
 
   constructor() { }
-
+  @Input() planet: PlanetList
   ngOnInit() {
   }
 

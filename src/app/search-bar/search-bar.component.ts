@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  @Output() onSearch: EventEmitter <string> = new EventEmitter<string>()
 
+  namePlanet: string =''
+  constructor() {
+    
+   }
+  
   ngOnInit() {
+  }
+
+  onInputText(){
+    if(this.namePlanet.trim()){
+      const namePlanet: string = this.namePlanet
+      this.onSearch.emit(namePlanet)
+    }
   }
 
 }

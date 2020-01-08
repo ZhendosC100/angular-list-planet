@@ -1,11 +1,17 @@
 <div class="container">
   <div class="sorting">
-    <app-search-bar></app-search-bar>
+    <app-search-bar
+    (onSearch)="searchFilter($event)"
+    ></app-search-bar
+      >
     <app-filter-bar></app-filter-bar>
   </div>
   <div class="list_container">
-    <app-planets></app-planets>
-    <app-planets></app-planets>
-    <app-planets></app-planets>
+    <app-planets 
+      *ngFor="let pl of planets"
+      [planet]="pl"
+    ></app-planets>
   </div>
 </div>
+
+<!-- [ngStyle]="{background: 'url(img/maxresdefault.jpg)'}" -->
