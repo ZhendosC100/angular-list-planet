@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {PlanetList} from '../app.component';
+import {PlanetList} from '../home-page/home-page.component';
 
 
 @Pipe({

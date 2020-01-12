@@ -1,4 +1,9 @@
 <div class="planets__container" (click)="toDetails()">
+  <ul>
+    <li >
+      <a [routerLink]="['/details']">Details</a>
+    </li>
+  </ul>
     <p>Name: <strong>{{planet.name}}</strong></p>
     <p>Rotation period: <strong>{{planet.rotation_period}}</strong> </p>
 <!--    <p>Orbital Period: <strong>{{planet.orbital_period}}</strong> </p>-->

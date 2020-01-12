@@ -10,6 +10,11 @@ import { PlanetsComponent } from './planets/planets.component';
 
 import { FilterNamePipe } from './pipe/filter-name.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
+import { DetailsComponent } from './details/details.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
     // SearchBarComponent,
     FilterBarComponent,
     PlanetsComponent,
-    FilterNamePipe
+    FilterNamePipe,
+    HomePageComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlanetList } from '../app.component';
+import { PlanetList } from '../home-page/home-page.component';
 
 @Component({
   selector: 'app-planets',

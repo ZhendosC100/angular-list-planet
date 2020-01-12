@@ -1,0 +1,23 @@
+<div class="sorting">
+  <input
+    type="text"
+    name="search"
+    placeholder="Enter name of the planet"
+    [(ngModel)]="searchText"
+  >
+  <button class="btn" (click)="sliceNumber(5)">5</button>
+  <button class="btn" (click)="sliceNumber(5)">10</button>
+  <button class="btn" (click)="sliceNumber(5)">25</button>
+  <button class="btn" (click)="sliceNumber(8)">100</button>
+
+  <!--  <app-search-bar></app-search-bar> -->
+
+  <app-filter-bar></app-filter-bar>
+</div>
+<div class="list_container">
+
+  <app-planets
+    *ngFor="let pl of planets | filterName: searchText"
+    [planet]="pl"
+  ></app-planets>
+</div>
