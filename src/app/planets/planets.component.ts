@@ -12,5 +12,7 @@ export class PlanetsComponent implements OnInit {
   @Input() planet: PlanetList
   ngOnInit() {
   }
-
+  toDetails() {
+    console.log(this.planet.name);
+  }
 }
