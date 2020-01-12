@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {PlanetList , PlanetService } from '../planet.service';
 
-export interface PlanetList {
-  name: string;
-  rotation_period: number;
-  orbital_period: number;
-  diameter: number;
-  climate: string;
-  gravity: any;
-  terrain: string;
-  surface_water: number;
-  population: number;
+//export interface PlanetList {
+  //name: string;
+  //rotation_period: number;
+  //orbital_period: number;
+  //diameter: number;
+  //climate: string;
+  //gravity: any;
+  //terrain: string;
+  //surface_water: number;
+  //population: number;
 
-}
+//}
 
 @Component({
   selector: 'app-home-page',
@@ -27,17 +28,27 @@ export class HomePageComponent implements OnInit {
   pSlice: PlanetList[] = [];
   test = '';
   info: any = {};
-  constructor(private http: HttpClient) {
+  constructor(private planetService: PlanetService , private http: HttpClient) {
   }
 
   ngOnInit() {
-    this.http.get('https://swapi.co/api/planets/')
-      .subscribe(response => {
+    //console.log(this.planetService);
+  this.planetService.addPlanets()
+    .subscribe(response => {
 
-        this.info = response;
-        this.planets = this.info.results;
+      this.info = response;
+      this.planets = this.info.results;
       });
+
+    //this.http.get('https://swapi.co/api/planets/')
+      //.subscribe(response => {
+
+        //this.info = response;
+        //this.planets = this.info.results;
+      //});
+
   }
+
 
   sliceNumber(index) {
     console.log(index);

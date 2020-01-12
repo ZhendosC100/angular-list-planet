@@ -1,7 +1,7 @@
 <div class="planets__container" (click)="toDetails()">
   <ul>
     <li >
-      <a [routerLink]="['/details']">Details</a>
+      <a [routerLink]="['/details', planet.name]">Details</a>
     </li>
   </ul>
     <p>Name: <strong>{{planet.name}}</strong></p>
