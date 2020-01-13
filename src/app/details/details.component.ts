@@ -10,32 +10,33 @@ import {HttpClient} from '@angular/common/http';
 })
 export class DetailsComponent implements OnInit {
 
+  loading = false;
   detailPlanet: any = [];
   sDetail: PlanetList[] = [];
   infoName: any = {};
+  test = 'https://swapi.co/api/planets/?page=';
   info: any = {};
 
   constructor(private route: ActivatedRoute, private planetService: PlanetService , private http: HttpClient) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      console.log(params);
       this.infoName =  params;
     });
     this.findList(this.infoName);
   }
 
   findList(item) {
+    this.loading = true;
     this.planetService.addPlanets()
-      .subscribe(response => {
-        this.info = response;
-        this.sDetail = this.info.results;
-        console.log(this.sDetail);
-        this.detailPlanet = this.sDetail.find(p => p.name === item.name);
-        console.log(this.detailPlanet);
-        //this.info = response;
-        //this.planets = this.info.results;
-      });
-  }
+  .subscribe(response => {
+  this.info = response;
+  this.sDetail = this.info.results;
+  this.detailPlanet = this.sDetail.find(p => p.name === item.name);
+  this.loading = false;
+  });
+}
 
 }
+
+

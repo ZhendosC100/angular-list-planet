@@ -19,11 +19,10 @@ export interface PlanetList {
   providedIn: 'root'
 })
 export class PlanetService {
+
   constructor(private http: HttpClient) {}
   addPlanets(): Observable<PlanetList[]> {
    return this.http.get<PlanetList[]>('https://swapi.co/api/planets/');
   }
-  allPlanets(): Observable<PlanetList[]> {
-    return this.http.get<PlanetList[]>('https://swapi.co/api/planets/');
-  }
+
 }

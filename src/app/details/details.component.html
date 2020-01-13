@@ -4,7 +4,7 @@
       <a [routerLink]="['/']" >Main page</a>
     </li>
   </ul>
-  <div class="details_box">
+  <div class="details_box" *ngIf="!loading; else loadingBlock">
     <p>Name: <strong>{{detailPlanet.name}}</strong></p>
     <p>Rotation period: <strong>{{detailPlanet.rotation_period}}</strong> </p>
     <p>Orbital Period: <strong>{{detailPlanet.orbital_period}}</strong> </p>
@@ -15,4 +15,7 @@
     <p>Surface Water: <strong>{{detailPlanet.surface_water}}</strong> </p>
     <p>Population: <strong>{{detailPlanet.population}}</strong> </p>
   </div>
+  <ng-template #loadingBlock>
+    <p class="loading">Loading... </p>
+  </ng-template>
 </div>

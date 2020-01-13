@@ -2,18 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {PlanetList , PlanetService } from '../planet.service';
 
-//export interface PlanetList {
-  //name: string;
-  //rotation_period: number;
-  //orbital_period: number;
-  //diameter: number;
-  //climate: string;
-  //gravity: any;
-  //terrain: string;
-  //surface_water: number;
-  //population: number;
-
-//}
 
 @Component({
   selector: 'app-home-page',
@@ -22,6 +10,7 @@ import {PlanetList , PlanetService } from '../planet.service';
 })
 export class HomePageComponent implements OnInit {
 
+  loading = false;
   title = 'planets';
   searchText = '';
   planets: PlanetList[] = [];
@@ -33,26 +22,21 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     //console.log(this.planetService);
-  this.planetService.addPlanets()
-    .subscribe(response => {
-
-      this.info = response;
-      this.planets = this.info.results;
-      });
-
-    //this.http.get('https://swapi.co/api/planets/')
-      //.subscribe(response => {
-
-        //this.info = response;
-        //this.planets = this.info.results;
-      //});
-
+  this.fetchDataList();
   }
 
+  fetchDataList() {
+    this.loading = true;
+    this.planetService.addPlanets()
+      .subscribe(response => {
+
+        this.info = response;
+        this.planets = this.info.results;
+        this.loading = false;
+      });
+  }
 
   sliceNumber(index) {
-    console.log(index);
-    //console.log(this.info);
     this.test = this.info.next.slice(0, -1) + 5;
     console.log(this.test);
 
